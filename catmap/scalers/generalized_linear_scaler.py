@@ -117,8 +117,8 @@ class GeneralizedLinearScaler(ScalerBase):
             :TODO:
         """
         self.get_transition_state_scaling_matrix()
-        if self.transition_state_scaling_matrix is not None:
-            if self.adsorbate_coefficient_matrix is None:
+        if self.transition_state_scaling_matrix.any():
+            if not self.adsorbate_coefficient_matrix.any():
                 self.get_adsorbate_coefficient_matrix()
 
             coeffs =  np.dot(self.transition_state_scaling_matrix[:,:-1],
