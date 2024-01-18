@@ -207,7 +207,7 @@ class GeneralizedLinearScaler(ScalerBase):
                     for I,F,T in zip(IS_totals,FS_totals,TS_energies):
                         if None not in [I,F,T]:
                             valid_xy.append([F-I,T-I])
-                if len(valid_xy) is 0:
+                if len(valid_xy) == 0:
                     raise ValueError("Not enough parameters for " + TS)
                 x,y = zip(*valid_xy)
                 if params and len(params) == 1:
